@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "reset_scroll",
+    "slug": "reset_scroll",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
