@@ -5,8 +5,12 @@ import {Inter_400Regular, Inter_600SemiBold} from '@expo-google-fonts/inter'
 import * as Font from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import 'react-native-gesture-handler'
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+  SafeAreaView,
+} from 'react-native-safe-area-context'
 
-import {HomeScreen} from './src/screens/Home'
 import theme from './src/styles/theme'
 import Routes from './src/routes'
 
@@ -43,9 +47,13 @@ export default function App() {
 
   return (
     <View onLayout={onLayoutRootView} style={{flex: 1}}>
-      <ThemeProvider theme={theme}>
-        <Routes />
-      </ThemeProvider>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <SafeAreaView style={{flex: 1}}>
+          <ThemeProvider theme={theme}>
+            <Routes />
+          </ThemeProvider>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </View>
   )
 }
