@@ -25,7 +25,7 @@ export function HomeScreen() {
           <ButtonContainer>
             <Button
               title="Exemplo 2 (reset de scroll funcionando)"
-              onPress={() => {}}
+              onPress={() => navigation.navigate('RegistrationWorking')}
             />
           </ButtonContainer>
         </Content>
