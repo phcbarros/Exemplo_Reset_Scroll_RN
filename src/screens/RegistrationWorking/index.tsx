@@ -1,15 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import * as Yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {FieldValues, useForm} from 'react-hook-form'
-import {useNavigation} from '@react-navigation/native'
+import {useIsFocused, useNavigation} from '@react-navigation/native'
 
 import {Button} from '../../components/Button'
 import {InputForm} from '../../components/InputForm'
-import {KeyboardScroll} from '../../components/KeyboardsScroll'
+import {KeyboardScrollCorrect} from '../../components/KeyboardsScroll'
 import {Title} from '../../components/Title'
 
 import {Footer, Content, Form, FormGroup, FormLabel} from './styles'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Nome é obrigatório'),
@@ -23,6 +24,9 @@ const schema = Yup.object().shape({
 })
 
 export function RegistrationWorkingScreen() {
+  const keyboardScrollRef = React.useRef<KeyboardAwareScrollView>(null)
+  const isFocused = useIsFocused()
+
   const {
     control,
     handleSubmit,
@@ -37,8 +41,14 @@ export function RegistrationWorkingScreen() {
     navigation.navigate('Review', {data})
   }
 
+  useEffect(() => {
+    if (isFocused) {
+      keyboardScrollRef.current?.scrollToPosition(0, 0, false)
+    }
+  }, [isFocused])
+
   return (
-    <KeyboardScroll>
+    <KeyboardScrollCorrect>
       <Title>Registration Screen</Title>
 
       <Content>
@@ -145,6 +155,6 @@ export function RegistrationWorkingScreen() {
       <Footer>
         <Button title="Continuar" onPress={handleSubmit(handleRegister)} />
       </Footer>
-    </KeyboardScroll>
+    </KeyboardScrollCorrect>
   )
 }

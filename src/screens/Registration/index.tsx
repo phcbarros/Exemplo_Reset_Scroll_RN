@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import * as Yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {FieldValues, useForm} from 'react-hook-form'
-import {useNavigation} from '@react-navigation/native'
+import {useIsFocused, useNavigation} from '@react-navigation/native'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 import {Button} from '../../components/Button'
 import {InputForm} from '../../components/InputForm'
@@ -23,6 +24,9 @@ const schema = Yup.object().shape({
 })
 
 export function RegistrationScreen() {
+  const keyboardScrollRef = React.useRef<KeyboardAwareScrollView>(null)
+  const isFocused = useIsFocused()
+
   const {
     control,
     handleSubmit,
@@ -37,8 +41,14 @@ export function RegistrationScreen() {
     navigation.navigate('Review', {data})
   }
 
+  useEffect(() => {
+    if (isFocused) {
+      keyboardScrollRef.current?.scrollToPosition(0, 0, false)
+    }
+  }, [isFocused])
+
   return (
-    <KeyboardScroll>
+    <KeyboardScroll ref={keyboardScrollRef}>
       <Title>Registration Screen</Title>
 
       <Content>
