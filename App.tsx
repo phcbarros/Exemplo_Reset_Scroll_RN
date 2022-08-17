@@ -48,11 +48,9 @@ export default function App() {
   return (
     <View onLayout={onLayoutRootView} style={{flex: 1}}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <SafeAreaView style={{flex: 1}}>
-          <ThemeProvider theme={theme}>
-            <Routes />
-          </ThemeProvider>
-        </SafeAreaView>
+        <ThemeProvider theme={theme}>
+          <Routes />
+        </ThemeProvider>
       </SafeAreaProvider>
     </View>
   )
