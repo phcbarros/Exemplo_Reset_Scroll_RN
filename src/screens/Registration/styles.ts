@@ -1,15 +1,5 @@
 import styled from 'styled-components/native'
-
-export const Container = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    paddingBottom: 30,
-  },
-  showsVerticalScrollIndicator: false,
-})`
-  flex: 1;
-
-  padding: 0 24px;
-`
+import {RFValue} from 'react-native-responsive-fontsize'
 
 export const Title = styled.Text`
   font-size: 20px;
@@ -25,6 +15,19 @@ export const Content = styled.View`
 
 export const Form = styled.View`
   margin-top: 24px;
+`
+
+export const FormGroup = styled.View`
+  width: 100%;
+
+  margin-bottom: 8px;
+`
+
+export const FormLabel = styled.Text`
+  font-size: ${RFValue(14)}px;
+  font-family: ${({theme}) => theme.fonts.regular};
+  color: ${({theme}) => theme.colors.text};
+  margin-bottom: 8px;
 `
 
 export const Footer = styled.View`
