@@ -3,8 +3,9 @@ import React from 'react'
 import {SafeAreaView} from 'react-native'
 
 import {Button} from '../../components/Button'
+import {Title} from '../../components/Title'
 
-import {Container, Title, ButtonContainer, Content} from './styles'
+import {Container, ButtonContainer, Content} from './styles'
 
 export function HomeScreen() {
   const navigation = useNavigation()
@@ -16,13 +17,16 @@ export function HomeScreen() {
         <Content>
           <ButtonContainer>
             <Button
-              title="Exemplo 1"
+              title="Exemplo 1 (reset de scroll não funcionando)"
               onPress={() => navigation.navigate('Registration')}
             />
           </ButtonContainer>
 
           <ButtonContainer>
-            <Button title="Exemplo 2" onPress={() => {}} />
+            <Button
+              title="Exemplo 2 (reset de scroll funcionando)"
+              onPress={() => {}}
+            />
           </ButtonContainer>
         </Content>
       </Container>

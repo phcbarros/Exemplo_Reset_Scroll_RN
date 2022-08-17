@@ -1,11 +1,12 @@
-import {useRoute} from '@react-navigation/native'
+import {useRoute, useNavigation} from '@react-navigation/native'
 import React from 'react'
 
 import {Button} from '../../components/Button'
 import {Label} from '../../components/Label'
 import {RegisterForm} from '../../types/RegisterForm'
+import {Title} from '../../components/Title'
 
-import {Container, Title, Footer, Content} from './styles'
+import {Container, Footer, Content} from './styles'
 
 const labels = {
   name: 'Nome',
@@ -20,6 +21,11 @@ const labels = {
 export function ReviewScreen() {
   const route = useRoute()
   const {data} = route.params as {data: RegisterForm}
+  const navigation = useNavigation()
+
+  function handleSave() {
+    navigation.navigate('Success')
+  }
 
   return (
     <Container>
@@ -35,7 +41,7 @@ export function ReviewScreen() {
       </Content>
 
       <Footer>
-        <Button title="Salvar" onPress={() => {}} />
+        <Button title="Salvar" onPress={handleSave} />
       </Footer>
     </Container>
   )

@@ -7,8 +7,9 @@ import {useNavigation} from '@react-navigation/native'
 import {Button} from '../../components/Button'
 import {InputForm} from '../../components/InputForm'
 import {KeyboardScroll} from '../../components/KeyboardsScroll'
+import {Title} from '../../components/Title'
 
-import {Title, Footer, Content, Form, FormGroup, FormLabel} from './styles'
+import {Footer, Content, Form, FormGroup, FormLabel} from './styles'
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Nome é obrigatório'),

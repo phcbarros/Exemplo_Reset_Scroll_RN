@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import {HomeScreen} from '../screens/Home'
 import {RegistrationScreen} from '../screens/Registration'
 import {ReviewScreen} from '../screens/Review'
+import {SuccessScreen} from '../screens/Success'
 
 const Stack = createStackNavigator()
 
@@ -17,6 +18,7 @@ export function AppRoutes() {
         />
         <Stack.Screen name="Registration" component={RegistrationScreen} />
         <Stack.Screen name="Review" component={ReviewScreen} />
+        <Stack.Screen name="Success" component={SuccessScreen} />
       </Stack.Group>
     </Stack.Navigator>
   )
