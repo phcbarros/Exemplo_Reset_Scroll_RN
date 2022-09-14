@@ -10,8 +10,6 @@ export const Scroll = styled(
   contentContainerStyle: {
     paddingBottom: 120,
   },
-  extraScrollHeight: 50,
-  enableOnAndroid: true,
   showsVerticalScrollIndicator: false,
 })`
   flex: 1;
